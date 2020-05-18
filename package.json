@@ -1,0 +1,55 @@
+{
+  "name": "wcffutmx",
+  "version": "1.0.0",
+  "description": "Simple CRUD app implementation for WCF FUTMinna",
+  "main": "app.js",
+  "engines": {
+    "node": "12.16.x",
+    "yarn": ">=1.15.2 || 1.22.x"
+  },
+  "scripts": {
+    "client-install": "cd client && yarn",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn run server\" \"cd client && yarn start\"",
+    "heroku-postbuild": "cd client && NPM_CONFIG_PRODUCTION=false && yarn run build"
+  },
+  "author": "Aiyeola Victor",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.6",
+    "morgan": "^1.9.1",
+    "redis": "^3.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiyeola/wcffutmx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aiyeola/wcffutmx/issues"
+  },
+  "homepage": "https://wcffutmx.herokuapp.com"
+}
