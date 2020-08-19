@@ -2,13 +2,13 @@ const express = require('express');
 const Admin = require('../../controllers/adminController');
 const method = require('../../utils/method');
 const Validation = require('../../validation');
+const Access = require('../../middlewares/userRole');
 
 const router = express.Router();
-
 // super admin can register another admin
 router
   .route('/')
-  .post(Validation.validateAdmin, Admin.registerAdmin)
+  .post(Validation.validateAdminDetails, Access.isAdmin, Admin.registerAdmin)
   .all(method);
 
 router

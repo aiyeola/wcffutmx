@@ -10,7 +10,10 @@ module.exports = {
     .trim()
     .required(),
   username: Joi.string().required(),
-  userRole: Joi.string().trim().optional(),
+  userRole: Joi.string()
+    .trim(),
+    // .required()
+    // .valid('Administrator', 'Super Administrator'),
   name: Joi.string().alphanum().min(3).max(30).required(),
   text: Joi.string().required(),
   level: Joi.number().required().valid(100, 200, 300, 400, 500),
@@ -38,12 +41,7 @@ module.exports = {
         'phone-number field needs to have a 11 chars and they must all be numbers'
       )
     ),
+  string: Joi.string().trim().min(1),
   stringOptional: Joi.string().trim().min(1).optional(),
-  birthDate: Joi.date()
-    .optional()
-    .max('01-01')
-    .error(new Error('Format of birth date needs to be  dd-mm')),
-  birthMonth: Joi.date(),
-  birthYear: Joi.date(),
   campus: Joi.string().required().valid('Gidan-Kwano', 'Bosso')
 };

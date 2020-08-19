@@ -14,9 +14,9 @@ class Validator {
       level: Schema.level,
       contactNumber1: Schema.phone,
       contactNumber2: Schema.phone,
+      dobDD: Schema.number,
+      dobMM: Schema.string,
       unit: Schema.text,
-      dobMM: Schema.birthMonth,
-      dobYY: Schema.birthYear,
       origin: Schema.text,
       gender: Schema.gender,
       campus: Schema.campus
@@ -27,8 +27,16 @@ class Validator {
   static validateAdmin(req, res, next) {
     const schema = Joi.object().keys({
       username: Schema.username,
+      password: Schema.password
+    });
+    validator(schema, req.body, res, next);
+  }
+
+  static validateAdminDetails(req, res, next) {
+    const schema = Joi.object().keys({
+      username: Schema.username,
       password: Schema.password,
-      userRole: Schema.userRole
+      newPassword: Schema.password
     });
     validator(schema, req.body, res, next);
   }

@@ -8,8 +8,9 @@ class AdminController {
     const { username, password, userRole = undefined } = req.body;
     try {
       const user = await AdminService.isAdmin(username);
+      console.log('user: ', user);
 
-      if (user.length >= 1) {
+      if (user.length) {
         return Response.conflictError(res, 'Username has been used');
       }
 
