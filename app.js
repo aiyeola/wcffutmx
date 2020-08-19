@@ -5,13 +5,14 @@ const favicon = require('express-favicon');
 const path = require('path');
 require('dotenv').config();
 require('./database');
+
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-const routes = require('./routes');
 const errorHandler = require('errorhandler');
+const routes = require('./routes');
 const logger = require('./utils/logger');
 
 const isProduction = process.env.NODE === 'production';
